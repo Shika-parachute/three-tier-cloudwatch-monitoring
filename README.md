@@ -1,84 +1,70 @@
-\# Three-Tier CloudWatch Monitoring
+# Three-Tier CloudWatch Monitoring
 
+A professional monitoring and observability project for a containerized three-tier application running on Amazon ECS Fargate and monitored using Amazon CloudWatch.
 
+---
 
-Monitoring and observability project for a containerized three-tier application using Amazon ECS, AWS Fargate, and Amazon CloudWatch.
-
-
-
-\## Overview
-
-
+## Project Overview
 
 This project focuses on monitoring a three-tier application consisting of:
 
+- Frontend
+- Backend
+- MongoDB
 
+The application was deployed using Amazon ECS Fargate and monitored using Amazon CloudWatch.
 
-\- Frontend — Nginx
+The monitoring solution provides centralized visibility through:
 
-\- Backend — Node.js + Express
+- CloudWatch Metrics
+- CloudWatch Logs
+- CloudWatch Dashboard
+- CloudWatch Alarms
+- ECS monitoring
+- Application Load Balancer monitoring
 
-\- Database — MongoDB
+---
 
-\- Service Discovery — Amazon Cloud Map
+## Objectives
 
-\- Monitoring — Amazon CloudWatch
+The main objectives of this project are:
 
+- Monitor ECS Fargate services
+- Monitor CPU utilization
+- Monitor memory utilization
+- Monitor running ECS tasks
+- Monitor Application Load Balancer metrics
+- Collect and inspect container logs
+- Create CloudWatch alarms
+- Build a centralized monitoring dashboard
+- Verify application health
+- Document the monitoring architecture
 
+---
 
-The monitoring environment was created, tested, and verified using AWS CloudWatch metrics, logs, dashboards, and alarms.
-
-
-
-\## Architecture
-
-
+## Architecture
 
 ```text
-
 User / Browser
-
-&#x20;     |
-
-&#x20;     v
-
-Application Load Balancer :80
-
-&#x20;     |
-
-&#x20;     v
-
+      |
+      v
+Application Load Balancer
+HTTP :80
+      |
+      v
 ECS Fargate - Frontend
-
 Nginx :80
-
-&#x20;     |
-
-&#x20;     | backend.three-tier.local:5000
-
-&#x20;     v
-
+      |
+      | backend.three-tier.local:5000
+      v
 ECS Fargate - Backend
-
 Node.js + Express :5000
-
-&#x20;     |
-
-&#x20;     | mongodb.three-tier.local:27017
-
-&#x20;     v
-
+      |
+      | mongodb.three-tier.local:27017
+      v
 ECS Fargate - MongoDB
-
 MongoDB :27017
-
-
-
-&#x20;     |
-
-&#x20;     v
-
+      |
+      v
 Amazon CloudWatch
-
 Metrics | Logs | Dashboard | Alarms
-

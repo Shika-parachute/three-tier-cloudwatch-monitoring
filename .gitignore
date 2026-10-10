@@ -1,0 +1,23 @@
+# AWS / CloudWatch
+*.log
+
+# Environment files
+.env
+.env.*
+
+# Terraform / generated files
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
